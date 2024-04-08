@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- *Bootstrap, style.css, and font links -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Search</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- *Bootstrap Navbar Implementation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Cities</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" id="cityButtonsContainer">
+          <!-- *City buttons will be dynamically added here -->
+        </ul>
+        <form class="form-inline my-2 my-lg-0 ml-auto" id="searchForm">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search City"
+            aria-label="Search"
+            id="cityInput"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container mt-3" id="currentDayContainer">
+      <!-- *Current day weather details will be dynamically added here -->
+    </div>
+    <div class="container mt-5" id="forecastContainer">
+      <!-- *Forecast details will be dynamically added here -->
+    </div>
+
+    <footer class="footer py-3 bg-dark text-white">
+      <div class="container text-center">
+        <span class="text-muted"
+          >Your Portfolio: <a href="#">Portfolio Link</a></span
+        >
+      </div>
+      <!-- *Social media icons and links -->
+      <div class="container text-center mt-3">
+        <div class="social-icons">
+          <a href="https://github.com/JToton" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://linkedin.com/in/JToton" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- *JQuery, Bootstrap, dayjs, and script.js links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
