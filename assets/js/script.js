@@ -29,3 +29,25 @@ function fetchWeatherForecast(city) {
       console.error("Error fetching data:", error);
     });
 }
+
+// *Function to grab the next 5 days from object returned (API).
+function Next5Days(forecastData) {}
+
+// *Function to display forecast data.
+function displayForecast(data) {}
+
+// *Function to convert Kelvin to Fahrenheit.
+// *Noticed in object its returned in kelvin.
+function KelvinToFahrenheit(kelvin) {
+  return (((kelvin - 273.15) * 9) / 5 + 32).toFixed(2);
+}
+
+// *Function to save the current city.
+function saveCity(city) {}
+
+// *Display function to show created / appended city weather information.
+function displaySavedCities() {}
+
+// *Function to display current weather for the day.
+// *From mockup provided - the information above the 5 day forecast.
+function displayCurrentDayWeather(data) {}
