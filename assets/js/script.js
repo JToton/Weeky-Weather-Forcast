@@ -132,7 +132,8 @@ function KelvinToFahrenheit(kelvin) {
 }
 
 // ! Located a bug via console logs and application local storage.
-// ! This function is consistantly making new array items everytime a button is selected instead of using the previous.
+// ! This function is consistantly making new array items everytime
+// ! a button is selected instead of using the previous.
 function saveCity(city) {
   let savedCities = JSON.parse(localStorage.getItem("savedCities")) || [];
   savedCities.push(city);
@@ -187,10 +188,10 @@ function displayCurrentDayWeather(data, cityName) {
   // *Clear previous content.
   currentDayContainer.innerHTML = "";
 
-  // *Title City, State.
+  // *Title - City.
   const title = document.createElement("h2");
   // *Set the city name as the title.
-  title.textContent = cityName;
+  title.textContent = cityName.toUpperCase();
   // *Bootstrap classes / center alignment and margin bottom.
   title.classList.add("text-center", "mb-4");
   currentDayContainer.appendChild(title);
