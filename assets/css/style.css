@@ -1,15 +1,21 @@
-/* Ensure the body takes at least the height of the viewport */
+/* Body takes at least the height of the viewport */
+/* Display to flex, column direction, 
+    Sets a minimum height of 100% of the viewport height. */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Let the container grow to fill available space */
+/* Fill available space */
 .container {
   flex: 1;
 }
 
+/* FOOTER STYLES. */
+/* Layout of the footer. 
+    Width , content centered both horizontally and vertically. 
+        The flex direction column. */
 .footer {
   width: 100%;
   display: flex;
@@ -18,17 +24,79 @@ body {
   flex-direction: column;
 }
 
+/* Font size of links within the footer to 20px. */
 .footer a {
   font-size: 20px;
 }
 
+/* SOCIAL ICONS. */
+/* Centers the icons both horizontally and vertically. */
 .social-icons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Social icon styles. */
+/* Margin between social icons to 10px, font size to 30px. */
 .social-icons a {
   margin: 0 10px;
   font-size: 30px;
+}
+
+/* BUTTON STYLES. */
+/* Styles container for city buttons. 
+    Flex with wrapping and aligns items flex-start. */
+#cityButtonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* City button styles. */
+/* Margin between city buttons to 5px. */
+#cityButtonsContainer .btn {
+  margin: 5px;
+}
+
+/* CARD STYLES. */
+/* Margin, border, border radius, and box shadow. */
+.card {
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Card body styles, padding. */
+.card-body {
+  padding: 20px;
+}
+
+/* Card title styles. */
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Card text styles. */
+.card-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Horizontal scrolling for cards. */
+.card-row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: -0.5rem;
+}
+
+/* Margin between cards. */
+.card {
+  flex: 0 0 auto;
+  margin: 0.5rem;
 }
