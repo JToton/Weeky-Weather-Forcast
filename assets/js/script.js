@@ -34,10 +34,12 @@ function fetchWeatherForecast(city) {
       // *Display saved cities.
       displaySavedCities();
       // *Display current day weather details.
-      displayCurrentDayWeather(data.list[0]);
+      // *Pass city name as argument.
+      displayCurrentDayWeather(data.list[0], city);
       // *Save current day weather to local storage.
       localStorage.setItem("currentDayWeather", JSON.stringify(data.list[0]));
     })
+
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
@@ -129,6 +131,8 @@ function KelvinToFahrenheit(kelvin) {
   return (((kelvin - 273.15) * 9) / 5 + 32).toFixed(2);
 }
 
+// ! Located a bug via console logs and application local storage.
+// ! This function is consistantly making new array items everytime a button is selected instead of using the previous.
 function saveCity(city) {
   let savedCities = JSON.parse(localStorage.getItem("savedCities")) || [];
   savedCities.push(city);
@@ -177,7 +181,7 @@ function displaySavedCities() {
 
 // *Function to display current day weather details.
 // *From mockup provided - the information above the 5 day forecast.
-function displayCurrentDayWeather(data) {
+function displayCurrentDayWeather(data, cityName) {
   // *Get the container where current day weather will be displayed.
   const currentDayContainer = document.getElementById("currentDayContainer");
   // *Clear previous content.
@@ -185,7 +189,8 @@ function displayCurrentDayWeather(data) {
 
   // *Title City, State.
   const title = document.createElement("h2");
-  title.textContent = "Place holder for city and state";
+  // *Set the city name as the title.
+  title.textContent = cityName;
   // *Bootstrap classes / center alignment and margin bottom.
   title.classList.add("text-center", "mb-4");
   currentDayContainer.appendChild(title);
@@ -197,7 +202,7 @@ function displayCurrentDayWeather(data) {
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body");
 
-  // Include weather icon
+  // *Include weather icon.
   const weatherIcon = document.createElement("img");
   weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
   weatherIcon.alt = data.weather[0].main;
