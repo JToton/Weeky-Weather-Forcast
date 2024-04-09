@@ -13,38 +13,6 @@ body {
   flex: 1;
 }
 
-/* FOOTER STYLES. */
-/* Layout of the footer. 
-    Width , content centered both horizontally and vertically. 
-        The flex direction column. */
-.footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* Font size of links within the footer to 20px. */
-.footer a {
-  font-size: 20px;
-}
-
-/* SOCIAL ICONS. */
-/* Centers the icons both horizontally and vertically. */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Social icon styles. */
-/* Margin between social icons to 10px, font size to 30px. */
-.social-icons a {
-  margin: 0 10px;
-  font-size: 30px;
-}
-
 /* BUTTON STYLES. */
 /* Styles container for city buttons. 
     Flex with wrapping and aligns items flex-start. */
@@ -59,6 +27,14 @@ body {
 /* Margin between city buttons to 5px. */
 #cityButtonsContainer .btn {
   margin: 5px;
+}
+
+/* CITY TITLE STYLE*/
+#currentDayTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Set the height of the container to fill its parent container */
 }
 
 /* CARD STYLES. */
@@ -100,4 +76,36 @@ body {
 .card {
   flex: 0 0 auto;
   margin: 0.5rem;
+}
+
+/* FOOTER STYLES. */
+/* Layout of the footer. 
+    Width , content centered both horizontally and vertically. 
+        The flex direction column. */
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Font size of links within the footer to 20px. */
+.footer a {
+  font-size: 20px;
+}
+
+/* SOCIAL ICONS. */
+/* Centers the icons both horizontally and vertically. */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Social icon styles. */
+/* Margin between social icons to 10px, font size to 30px. */
+.social-icons a {
+  margin: 0 10px;
+  font-size: 30px;
 }

@@ -36,6 +36,10 @@ function fetchWeatherForecast(city) {
       // *Display current day weather details.
       // *Pass city name as argument.
       displayCurrentDayWeather(data.list[0], city);
+      // *Display current day weather title.
+      displayCurrentDayTitle(city);
+      // *Save current day city to local storage.
+      localStorage.setItem("currentCityName", city);
       // *Save current day weather to local storage.
       localStorage.setItem("currentDayWeather", JSON.stringify(data.list[0]));
     })
@@ -131,9 +135,6 @@ function KelvinToFahrenheit(kelvin) {
   return (((kelvin - 273.15) * 9) / 5 + 32).toFixed(2);
 }
 
-// ! Located a bug via console logs and application local storage.
-// ! This function is consistantly making new array items everytime
-// ! a button is selected instead of using the previous.
 function saveCity(city) {
   let savedCities = JSON.parse(localStorage.getItem("savedCities")) || [];
   savedCities.push(city);
@@ -188,14 +189,6 @@ function displayCurrentDayWeather(data, cityName) {
   // *Clear previous content.
   currentDayContainer.innerHTML = "";
 
-  // *Title City.
-  const title = document.createElement("h2");
-  // *Set the city name as the title.
-  title.textContent = cityName;
-  // *Bootstrap classes / center alignment and margin bottom.
-  title.classList.add("text-center", "mb-4");
-  currentDayContainer.appendChild(title);
-
   // *Create elements for displaying current day weather.
   const card = document.createElement("div");
   card.classList.add("card", "m-2");
@@ -228,18 +221,18 @@ function displayCurrentDayWeather(data, cityName) {
   cardBody.appendChild(cardText);
   card.appendChild(cardBody);
   currentDayContainer.appendChild(card);
-
-  // *After creating and appending the title, save its HTML content to local storage.
-  localStorage.setItem("currentDayTitleHTML", title.outerHTML);
 }
 
-// *Check if there's current day title in local storage and display it.
-const currentDayTitleHTML = localStorage.getItem("currentDayTitleHTML");
-if (currentDayTitleHTML) {
-  const currentDayContainer = document.getElementById("currentDayContainer");
+// *Function to display the title for the current day weather.
+function displayCurrentDayTitle(cityName) {
+  const currentDayTitleContainer = document.getElementById("currentDayTitle");
+  // *Clear previous content.
+  currentDayTitleContainer.innerHTML = "";
+
   const title = document.createElement("h2");
-  title.innerHTML = currentDayTitleHTML;
-  currentDayContainer.appendChild(title);
+  title.textContent = `Current Weather in ${cityName}`;
+  title.classList.add("text-center", "mb-4");
+  currentDayTitleContainer.appendChild(title);
 }
 
 // *Check if there's saved forecast data in local storage and display it.
@@ -254,5 +247,11 @@ displaySavedCities();
 // *Check if there's current day weather in local storage and display it.
 const currentDayWeather = localStorage.getItem("currentDayWeather");
 if (currentDayWeather) {
-  displayCurrentDayWeather(JSON.parse(currentDayWeather));
+  const parsedData = JSON.parse(currentDayWeather);
+  // *Retrieve city name from local storage.
+  const cityName = localStorage.getItem("currentCityName") || "Unknown";
+  // *Display the weather data along with the city name.
+  displayCurrentDayWeather(parsedData, cityName);
+  // *Display the title with the city name.
+  displayCurrentDayTitle(cityName);
 }
